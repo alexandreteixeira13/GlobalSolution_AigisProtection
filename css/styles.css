@@ -1,4 +1,4 @@
-/* reset CSS */
+/* Base */
 * {
   margin: 0;
   padding: 0;
@@ -47,7 +47,7 @@ img {
   display: block;
 }
 
-.site-header {
+.header {
   min-height: var(--header-height);
   padding: 12px 28px;
   border-bottom: 1px solid var(--color-line);
@@ -61,20 +61,20 @@ img {
   z-index: 10;
 }
 
-.brand,
-.site-nav a,
-.header-context {
+.logo,
+.menu a,
+.header-info {
   font-weight: 700;
 }
 
-.brand {
+.logo {
   display: flex;
   align-items: center;
   gap: 8px;
   white-space: nowrap;
 }
 
-.brand i {
+.logo i {
   color: var(--color-primary);
 }
 
@@ -83,7 +83,7 @@ img {
   display: none;
 }
 
-.site-nav ol {
+.menu ol {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,14 +91,14 @@ img {
   gap: 10px 34px;
 }
 
-.site-nav a {
+.menu a {
   padding: 8px 0;
   color: var(--color-muted);
   position: relative;
   transition: color var(--transition);
 }
 
-.site-nav a::after {
+.menu a::after {
   content: "";
   width: 0;
   height: 1px;
@@ -109,15 +109,15 @@ img {
   transition: width var(--transition);
 }
 
-.site-nav a:hover {
+.menu a:hover {
   color: var(--color-text);
 }
 
-.site-nav a:hover::after {
+.menu a:hover::after {
   width: 100%;
 }
 
-.header-context {
+.header-info {
   color: var(--color-muted);
   text-align: right;
   white-space: nowrap;
@@ -132,7 +132,7 @@ img {
   overflow: hidden;
 }
 
-.hero-image {
+.hero-img {
   height: 100%;
   object-fit: cover;
   position: absolute;
@@ -141,14 +141,14 @@ img {
   animation: heroImageDrift 18s ease-in-out infinite alternate;
 }
 
-.hero-overlay {
+.hero-bg {
   background-color: rgba(16, 16, 15, .72);
   position: absolute;
   inset: 0;
   z-index: 1;
 }
 
-.hero-content {
+.hero-info {
   width: min(100%, var(--content-width));
   margin: 0 auto;
   display: grid;
@@ -158,7 +158,7 @@ img {
   z-index: 2;
 }
 
-.hero-copy {
+.hero-texto {
   animation: fadeUp .7s ease both;
 }
 
@@ -176,14 +176,11 @@ img {
   font-weight: 600;
 }
 
-.button {
+.btn {
   width: fit-content;
   margin-top: 28px;
   padding: 12px 16px;
-  border: 1px solid var(--color-primary);
   border-radius: 8px;
-  color: var(--color-bg);
-  background-color: var(--color-primary);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -191,12 +188,18 @@ img {
   transition: background-color var(--transition), transform var(--transition);
 }
 
-.button:hover {
+.btn-primary {
+  border: 1px solid var(--color-primary);
+  color: var(--color-bg);
+  background-color: var(--color-primary);
+}
+
+.btn-primary:hover {
   background-color: var(--color-primary-strong);
   transform: translateY(-2px);
 }
 
-.hero-facts {
+.hero-dados {
   width: min(100%, 900px);
   border: 1px solid var(--color-line);
   background-color: rgba(16, 16, 15, .84);
@@ -205,23 +208,23 @@ img {
   animation: fadeUp .7s ease .15s both;
 }
 
-.hero-facts div {
+.hero-dados div {
   min-width: 0;
   padding: 20px 22px;
   border-right: 1px solid var(--color-line);
 }
 
-.hero-facts div:last-child {
+.hero-dados div:last-child {
   border-right: 0;
 }
 
-.hero-facts dt {
+.hero-dados dt {
   margin-bottom: 6px;
   color: var(--color-primary);
   font-weight: 700;
 }
 
-.hero-facts dd {
+.hero-dados dd {
   color: var(--color-muted);
   font-weight: 600;
 }
@@ -237,7 +240,7 @@ img {
   background-color: var(--color-band);
 }
 
-.section-inner {
+.area {
   width: min(100%, var(--content-width));
   margin: 0 auto;
   display: grid;
@@ -249,12 +252,12 @@ img {
   animation-range: entry 8% cover 28%;
 }
 
-.section-intro {
+.section-header {
   display: grid;
   gap: 18px;
 }
 
-.section-number {
+.numero {
   width: 48px;
   height: 48px;
   border: 1px solid var(--color-line);
@@ -271,19 +274,19 @@ img {
   line-height: .98;
 }
 
-.section-intro p {
+.section-header p {
   color: var(--color-muted);
   font-size: 1.08rem;
   font-weight: 600;
 }
 
-.risk-list,
-.objective-grid {
+.problema-lista,
+.objetivos-grid {
   display: grid;
   gap: 14px;
 }
 
-.risk-list article {
+.problema-lista article {
   min-height: 118px;
   padding: 24px;
   border: 1px solid var(--color-line);
@@ -296,22 +299,22 @@ img {
   transition: border-color var(--transition), background-color var(--transition), transform var(--transition);
 }
 
-.risk-list i {
+.problema-lista i {
   color: var(--color-primary);
   font-size: 1.3rem;
   margin-top: 4px;
 }
 
-.card-grid,
-.benefit-grid {
+.cards,
+.beneficios-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
-.card-grid article,
-.benefit-grid article,
-.audience-list article {
+.cards article,
+.beneficios-grid article,
+.publico-lista article {
   padding: 28px;
   border: 1px solid var(--color-line);
   border-radius: 8px;
@@ -319,66 +322,66 @@ img {
   transition: border-color var(--transition), background-color var(--transition), transform var(--transition);
 }
 
-.card-grid article {
+.cards article {
   min-height: 220px;
   display: grid;
   align-content: start;
   gap: 18px;
 }
 
-.card-grid i {
+.cards i {
   color: var(--color-primary);
   font-size: 1.45rem;
 }
 
-.audience {
+.publico-grid {
   display: grid;
   grid-template-columns: minmax(260px, .9fr) minmax(260px, .75fr);
   gap: 18px;
 }
 
-.audience-section .section-inner {
+.publico-section .area {
   grid-template-columns: minmax(360px, 440px) minmax(0, 1fr);
   gap: clamp(48px, 6vw, 96px);
 }
 
-.audience-section .audience {
+.publico-section .publico-grid {
   margin-left: clamp(12px, 2vw, 36px);
 }
 
-.audience figure {
+.publico-grid figure {
   border: 1px solid var(--color-line);
   border-radius: 8px;
   overflow: hidden;
   background-color: var(--color-surface);
 }
 
-.audience img {
+.publico-grid img {
   height: 100%;
   min-height: 340px;
   object-fit: cover;
   transition: transform .6s ease;
 }
 
-.audience-list {
+.publico-lista {
   display: grid;
   gap: 18px;
 }
 
-.benefit-grid,
-.objective-grid {
+.beneficios-grid,
+.objetivos-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.benefit-grid article,
-.objective-grid article {
+.beneficios-grid article,
+.objetivos-grid article {
   min-height: 170px;
   display: grid;
   gap: 16px;
   align-content: start;
 }
 
-.objective-grid article {
+.objetivos-grid article {
   padding: 28px;
   border: 1px solid var(--color-line);
   border-radius: 8px;
@@ -386,21 +389,21 @@ img {
   transition: border-color var(--transition), background-color var(--transition), transform var(--transition);
 }
 
-.objective-grid strong {
+.objetivos-grid strong {
   color: var(--color-primary);
 }
 
-.risk-list article:hover,
-.objective-grid article:hover,
-.card-grid article:hover,
-.benefit-grid article:hover,
-.audience-list article:hover {
+.problema-lista article:hover,
+.objetivos-grid article:hover,
+.cards article:hover,
+.beneficios-grid article:hover,
+.publico-lista article:hover {
   border-color: #685a3d;
   background-color: var(--color-surface-2);
   transform: translateY(-3px);
 }
 
-.audience figure:hover img {
+.publico-grid figure:hover img {
   transform: scale(1.04);
 }
 
@@ -417,7 +420,7 @@ img {
   line-height: 1.65;
 }
 
-.site-footer {
+.footer {
   padding: 24px 28px;
   border-top: 1px solid var(--color-line);
   color: var(--color-muted);
@@ -462,17 +465,17 @@ img {
 }
 
 @media (width <=1000px) {
-  .site-header {
+  .header {
     grid-template-columns: 1fr;
     align-items: start;
     gap: 10px;
   }
 
-  .site-nav ol {
+  .menu ol {
     justify-content: flex-start;
   }
 
-  .header-context {
+  .header-info {
     text-align: left;
   }
 
@@ -480,33 +483,33 @@ img {
     padding-top: 178px;
   }
 
-  .section-inner,
-  .audience,
-  .audience-section .section-inner {
+  .area,
+  .publico-grid,
+  .publico-section .area {
     grid-template-columns: 1fr;
   }
 
-  .audience-section .audience {
+  .publico-section .publico-grid {
     margin-left: 0;
   }
 
-  .card-grid,
-  .objective-grid,
-  .benefit-grid {
+  .cards,
+  .objetivos-grid,
+  .beneficios-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (width <=620px) {
 
-  .site-header,
+  .header,
   .hero,
   .section,
-  .site-footer {
+  .footer {
     padding-inline: 16px;
   }
 
-  .site-header {
+  .header {
     min-height: 64px;
     padding-block: 12px;
     grid-template-columns: 1fr 42px;
@@ -528,18 +531,18 @@ img {
     cursor: pointer;
   }
 
-  .site-nav,
-  .header-context {
+  .menu,
+  .header-info {
     display: none;
     grid-column: 1 / -1;
   }
 
-  .nav-toggle:checked~.site-nav,
-  .nav-toggle:checked~.header-context {
+  .nav-toggle:checked~.menu,
+  .nav-toggle:checked~.header-info {
     display: block;
   }
 
-  .site-nav ol {
+  .menu ol {
     padding-top: 8px;
     border-top: 1px solid var(--color-line);
     display: grid;
@@ -547,8 +550,8 @@ img {
     gap: 8px 18px;
   }
 
-  .site-nav a,
-  .header-context {
+  .menu a,
+  .header-info {
     font-size: .9rem;
   }
 
@@ -560,24 +563,24 @@ img {
     font-size: 3.5rem;
   }
 
-  .hero-facts,
-  .card-grid,
-  .objective-grid,
-  .benefit-grid {
+  .hero-dados,
+  .cards,
+  .objetivos-grid,
+  .beneficios-grid {
     grid-template-columns: 1fr;
   }
 
-  .hero-facts div {
+  .hero-dados div {
     border-right: 0;
     border-bottom: 1px solid var(--color-line);
   }
 
-  .hero-facts div:last-child {
+  .hero-dados div:last-child {
     border-bottom: 0;
   }
 
-  .risk-list article,
-  .site-footer {
+  .problema-lista article,
+  .footer {
     flex-direction: column;
   }
 }
